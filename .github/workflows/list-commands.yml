@@ -30,6 +30,7 @@ jobs:
             Available commands
 
             - \`/generate-basics-checklist\` edits the comment with the basics checklist. This is intended for the FIT coordinator (requires owner permissions on the repository).
+            - \`/generate-metadata\` asks Copilot to interpret the submission using the current form and schema and open a draft metadata PR in FIT_web_templating. The workflow validates the JSON against the target schema; the coordinator reviews accuracy before merging (requires owner or member permissions on the repository).
             - \`/generate-reviewer-instructions @github-name\` edits the comment with the reviewer instructions for a user with the github username \`@github-name\`. This is intended for the FIT coordinator (requires owner permissions on the repository).
             - \`/generate-reviewer-checklist\` edits the comment with the reviewer checklist. This is intended for the reviewer (requires owner or member permissions on the repository).
             - \`/generate-post-acceptance-checklist\` edits the comment with the post-acceptance checklist. This is intended for the FIT coordinator (requires owner permissions on the repository).

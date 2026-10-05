@@ -39,6 +39,7 @@ Post commands at the start of a new comment on the submission issue. Coordinator
 | Command | Who | Result |
 | --- | --- | --- |
 | `/generate-basics-checklist` | Coordinator | Replaces the command comment with basic checks and documentation completeness checks. |
+| `/generate-metadata` | Coordinator | Asks Copilot to interpret the submission and open a draft metadata PR in `FIT_web_templating`. |
 | `/generate-reviewer-instructions @reviewer-github-name` | Coordinator | Posts a new comment with reviewer instructions. |
 | `/generate-reviewer-checklist` | Reviewer | Replaces the command comment with installation, example, and testing checks. |
 | `/generate-post-acceptance-checklist` | Coordinator | Replaces the command comment with publication tasks. |
@@ -63,7 +64,19 @@ New issues with the `Review Request` label receive one welcome comment linking t
 
 Only owner/member commands advance stages. The tracking workflow creates stage labels as needed and replaces the previous review-stage label without removing unrelated labels. It tracks the **requested stage**, not successful execution of another workflow or verification of checklist completion. Coordinators must verify the mandatory checks and publication before issuing the corresponding commands; reissuing an earlier command can move the stage back for another review round.
 
-These workflows need `issues: write` and must be on the default branch to receive issue events. They do not execute submitted code, fork repositories, or perform AI metadata validation. Language-specific checks remain author-run.
+These workflows need `issues: write` and must be on the default branch to receive issue events. They do not execute submitted code or fork repositories. Language-specific checks remain author-run.
+
+### AI metadata generation
+
+An owner or member can post `/generate-metadata` as the entire comment on a `Review Request` issue. The workflow creates a task in `nmfs-ost/FIT_web_templating` and assigns it to GitHub Copilot. Copilot receives the original submission, this repository's current submission form, and the target repository's current schema. It reads metadata examples in the target repository and creates a JSON file under `model_list_dir` in a draft PR. There is no fixed form-to-JSON parser or field-by-field comparison with hard-coded expected values.
+
+Copilot is instructed to use only submitted facts, set `FIT_reviewed` to `In_Progress`, and explain missing or ambiguous information on the linked task rather than inventing values. Planned future release usage needs clarification. Badge alt text may be drafted, but must be flagged for coordinator review. The agent must not overwrite existing tool metadata or change any other files.
+
+The workflow checks for linked PRs every 30 minutes; repeating the command also checks progress. It validates the generated JSON against the schema fetched from the target repository at dispatch, with no additional fixed metadata policies. If the schema or submission changes, the result must be regenerated. Only one newly added JSON file directly inside `model_list_dir` is allowed. Schema validation checks structure, not factual accuracy or working links: the coordinator must compare the AI-generated metadata with the submission before merging. No merge, publication, or acceptance is automated.
+
+To enable this workflow, store an approved fine-grained user PAT as the `COPILOT_METADATA_TOKEN` Actions secret. The token owner must have access to Copilot in `FIT_web_templating`; select that repository and grant the permissions required to read its contents, create and assign issues, and update draft PRs. Never include the token in submissions or agent tasks. The source workflow uses its own `GITHUB_TOKEN` to report status. Required agent/Actions approvals remain manual. See [GitHub's Copilot API documentation](https://docs.github.com/en/copilot/how-tos/use-copilot-agents/cloud-agent/use-cloud-agent-via-the-api) for current eligibility and token requirements.
+
+After correcting a submission, close the old task and PR before requesting a new generation. The source issue receives links to the task and any identified PR, validation errors, and the exact validated commit. Review the linked task for any clarification requests from Copilot.
 
 ### Reviewing existing tools (section under construction)
 
@@ -75,6 +88,8 @@ These software already have metadata in the FIT. What needs to happen is:
 ## Workflow development checks
 
 With Python, PyYAML (`python -m pip install PyYAML`), and Node.js installed, run `python -B -m unittest discover -s tests -v`. The tests parse the issue form and workflows and execute their JavaScript with mocked GitHub APIs; they do not modify GitHub issues. Live event delivery and repository permissions must still be verified after deployment.
+
+Metadata tests additionally require `python -m pip install -r requirements-metadata.txt`. They cover schema validation and mocked Copilot dispatch/PR reporting, not AI output quality or live Copilot access.
 
 
 ## disclaimer
