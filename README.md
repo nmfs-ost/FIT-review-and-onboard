@@ -7,7 +7,7 @@ See the .github/workflows folder to preview the checklists.
 
 Thank you for submitting your software to the Fisheries Integrated Toolbox! Read the [tool author submission guide](tool-author-submission-guide.md), confirm that your software is [in scope for FIT](https://nmfs-ost.github.io/noaa-fit-resources/about/#scope-statement), then [open an issue and fill out the Quality Review Request form](https://github.com/nmfs-ost/FIT-test-quality-checks/issues/new?template=quality-review-request.yml). Include a short testing narrative, language-specific check results, and a line-coverage report.
 
-After submitting, some basic checks will occur before the software is assigned a peer reviewer who will review the materials you provide to being checking off components of the checklist. This is a checklist-based review, where all mandatory items must be checked off before the software can be onboarded to the FIT.
+After submitting, some basic checks will occur before the software is assigned a peer reviewer who will review the materials you provide to begin checking off components of the checklist. This is a checklist-based review, where all mandatory items must be checked off before the software can be onboarded to the FIT.
 
 ## Process for review
 
@@ -26,7 +26,7 @@ After submitting, some basic checks will occur before the software is assigned a
 
 The FIT coordinator aims to complete basic checks within **one week of submission**. Reviewers aim to complete peer review within **four weeks of assignment**. These are targets, not deadlines: record blockers and agree on extensions in the submission issue. Reviewer recruitment and author revisions depend on availability; the coordinator should post progress updates when delayed.
 
-Reviewers- Start review with a **90-minute session**, using the author's testing narrative. Record problems and ask questions rather than spending the session debugging the tool. This is not a limit on the total review or a reason to skip required checks. See the [reviewer guide](reviewer-guide.md).
+Reviewers- See the [reviewer guide](reviewer-guide.md).
 
 The staged, issue-based approach draws on [rOpenSci](https://devguide.ropensci.org/softwarereviewintro.html), [JOSS](https://joss.readthedocs.io/en/latest/reviewer_guidelines.html), and [pyOpenSci](https://www.pyopensci.org/software-peer-review/).
 

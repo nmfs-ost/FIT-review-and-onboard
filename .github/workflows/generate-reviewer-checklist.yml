@@ -31,8 +31,7 @@ jobs:
 
             Thanks for reviewing this tool\! Please use the information submitted by the tool authors to complete the checklist.
 
-            Aim to complete the review within four weeks of assignment, discussing extensions on this issue. Start with a 90-minute review session; record blockers and ask the author for help rather than spending that time debugging their tool. This is not a cap on the full review.
-
+            Aim to complete the review within four weeks of assignment, discussing extensions on this issue.
             If you have any questions, you can ask the tool author directly on this thread by using the \`@\` in front of their github username in a comment.
 
             Check off all items that are complete.
@@ -54,7 +53,6 @@ jobs:
             - [ ] Author-provided language-specific check results have been reviewed for the submitted version, including explanations of warnings or failures (e.g., R CMD check for R packages; build and test output for Python; or a justified alternative).
             - [ ] [Code coverage](https://www.atlassian.com/continuous-delivery/software-testing/code-coverage) is acceptable (\>40% line coverage).
             - [ ] Sample data provided to validate functionality.
-            - [ ] Usability testing with representative users completing realistic tasks is described, including difficulties, feedback, and resulting changes (qualitative results are acceptable; this is not unit testing or accessibility checking).
 
             ### Sound practices (not mandatory)
 

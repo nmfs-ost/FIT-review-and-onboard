@@ -4,14 +4,14 @@ A guide to help reviewers in filling out the tool quality standards.
 
 ## Review workflow
 
-Use the submission issue as the review record. The coordinator checks metadata and documentation completeness before assigning a reviewer. Reviewers verify installation, run the getting started example, and evaluate testing evidence; there is no need to repeat documentation-presence checks unless something is missing or unclear.
+Use the submission issue as the review record. The coordinator checks metadata and documentation completeness before assigning a reviewer.
 
 1. Confirm that you have no conflict of interest
 2. Post `/generate-reviewer-checklist` in a new issue comment. Ask the coordinator for help if you cannot run it.
 3. Complete the checklist, record results and questions in the issue. Ask for explanations or corrected evidenc. Link detailed source-repository issues back to the review. Only check mandatory items once they are verified; optional sound practices need not all be met.
 6. Tell the coordinator when the review is complete. The coordinator will handle the post-acceptance steps.
 
-Aim to finish within **four weeks of assignment**. This is a target, not a hard deadline; please discuss blockers or extensions in the issue. Start with a **90-minute session** and write down what you verified and what needs author input. Avoid spending the session debugging unfamiliar code. Timeboxing is a way to surface blockers, not a cap on total effort or permission to skip checks.
+Aim to finish within **four weeks of assignment**. This is a target, not a hard deadline; please discuss blockers or extensions in the issue. 
 
 See the [command quick reference and example review](README.md#command-quick-reference) and the [test definitions and evidence requirements](tool-author-submission-guide.md#tests).
 

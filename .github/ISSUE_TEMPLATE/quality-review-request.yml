@@ -165,7 +165,7 @@ body:
     id: testcoverage
     attributes:
       label: Test coverage
-      description: Greater than 40% line coverage is required. Provide a report for the reviewed version and the command used to measure coverage (e.g., covr for R, Coverage.py for Python, or gcovr for C++), including any excluded code. Coverage can be measured while running test scripts; a formal unit testing framework is not required.
+      description: Greater than 40% line coverage is required. Provide a report for the reviewed version and the command used to measure coverage (e.g., covr for R, Coverage.py for Python, or gcovr for C++), including any excluded code.
     validations:
       required: true
   - type: textarea
@@ -178,11 +178,6 @@ body:
     attributes:
       label: Sample Data Availability
       description: Describe and link to any available sample data that validates functionality of program.
-  - type: textarea
-    id: usabilitytesting
-    attributes:
-      label: Usability Testing
-      description: Describe representative users attempting realistic tasks, the difficulties or feedback observed, and resulting changes. Qualitative results are acceptable. This assesses whether people can use the tool, not whether individual functions work; it is separate from accessibility checks and applies to command-line tools as well as GUIs.
   - type: input
     id: logo
     attributes:
@@ -272,7 +267,7 @@ body:
     id: exelink
     attributes:
       label: Executable Link
-      description: Link the compiled version of the tool, if available. A releases/latest link is preferred over a hard-coded release URL for the public listing; identify the exact version reviewed in the testing narrative.
+      description: Link the compiled version of the tool, if available. A releases/latest link is preferred over a hard-coded release URL for the public listing.
       placeholder: https://github.com/nmfs-fish-tools/SSMSE/releases/latest
     validations:
       required: false
@@ -295,7 +290,7 @@ body:
     id: sourcecodelink
     attributes:
       label: Source Code Link
-      description: Link directly to the source code repository, not the tool's website. Use Website Link for the website and provide a reason above if source code cannot be shared.
+      description: Link directly to the source code repository.
       placeholder: https://github.com/nmfs-fish-tools/SSMSE
     validations:
       required: false
@@ -391,7 +386,7 @@ body:
     id: releases
     attributes:
       label: Uses Github Releases
-      description: Does the codebase use GitHub releases? If yes, include Source Code Link and leave Static version number blank. Prefer releases/latest links for the public listing so they stay current.
+      description: Does the codebase use GitHub releases? If yes, include Source Code Link and leave Static version number blank.
       options: 
         - "Yes"
         - "No"
@@ -402,7 +397,7 @@ body:
     id: versionnumber
     attributes:
       label: Static version number
-      description: Leave blank if using GitHub releases; a static version number is not required in that case. Otherwise, provide the current version and notify the FIT coordinator when it changes. Record the exact version or commit reviewed in the testing narrative even when the public listing uses releases/latest.
+      description: Leave blank if using GitHub releases; a static version number is not required in that case. Otherwise, provide the current version and notify the FIT coordinator when it changes.
       placeholder: 0.9.0
     validations:
       required: false

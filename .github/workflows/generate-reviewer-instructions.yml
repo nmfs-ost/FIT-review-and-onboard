@@ -40,10 +40,10 @@ jobs:
             // Define the new checklist in GitHub-flavored Markdown.
             const reviewChecklist = mention? `${mention}, thank you for volunteering to review this submission to the Fisheries Integrated Toolbox. This is a checklist-based review.
 
-            Aim to finish within four weeks of assignment; this is a target, not a hard deadline. Discuss blockers or extensions in this issue. Start with a 90-minute session using the author's testing narrative, record what you verified, and ask for help rather than spending the session debugging the tool. This is not a cap on the full review.
+            Aim to finish within four weeks of assignment; this is a target, not a hard deadline. Discuss blockers or extensions in this issue.
 
             1. Generate your review checklist by commenting on this issue using the command \`/generate-reviewer-checklist\`
-            2. Follow the author's testing narrative for the reviewed version, verify installation and the getting started example, and assess language-specific check results and the mandatory greater than 40% line coverage. Documentation completeness is checked by the coordinator. Formal unit testing frameworks are optional sound practices.
+            2. Check off items on the checklist as you verify that they are complete.
             3. Keep review findings and questions in this submission issue. If detailed implementation work needs a source-repository issue, link it here so this remains the review record.
             4. Please feel free to ask the developer any questions, as this is an open review process.
 
