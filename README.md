@@ -1,9 +1,17 @@
-# test-quality-checks
-Test out the tool quality checks.
+# FIT Peer Review and Onboarding
 
-See the .github/workflows folder to preview the checklists.
+This repository is for onboarding new software to the NOAA Fisheries Integrated Toolbox. All NOAA-developed software must go through a peer review process before onboarding.
+
+For NOAA developers:
+
+The NOAA Fisheries Integrated Toolbox is seeking 5 [in-scope](https://nmfs-ost.github.io/noaa-fit-resources/about/#scope-statement) software tools for peer review as part of our second beta testing phase. Submitting your software will directly assist us in refining our peer review workflow. Interested? Please let us know in the [Software Review Interest form](https://docs.google.com/forms/d/e/1FAIpQLSfRA-5dUT2f3i7CxLy7PcKBcShuBds-E3hQ6ugcYD5veOieSQ/viewform?usp=dialog), ideally by Nov 6 (it is ok to express interest later, too).
+
+We are also recruiting peer reviewers. If you would like to review software for the Fisheries Integrated Toolbox now or in the future, please submit [this peer reviewer interest form](https://docs.google.com/forms/d/e/1FAIpQLScJNLk9HBPqxZDZd-7-22ZGjEfm7bb-4Ioo27Yro2vhe9LrPA/viewform?usp=dialog). Advanced software engineering expertise is not required - if you have experience writing scientific software for colleagues or future project use and enjoy offering constructive input, we welcome your participation!
+
 
 ## Instructions for developer
+
+For NOAA developers, please fill out [this form](https://docs.google.com/forms/d/e/1FAIpQLSfRA-5dUT2f3i7CxLy7PcKBcShuBds-E3hQ6ugcYD5veOieSQ/viewform?usp=dialog) first to express interest in having your software reviewed.
 
 Thank you for submitting your software to the Fisheries Integrated Toolbox! Read the [tool author submission guide](tool-author-submission-guide.md), confirm that your software is [in scope for FIT](https://nmfs-ost.github.io/noaa-fit-resources/about/#scope-statement), then [open an issue and fill out the Quality Review Request form](https://github.com/nmfs-ost/FIT-test-quality-checks/issues/new?template=quality-review-request.yml). Include a short testing narrative, language-specific check results, and a line-coverage report.
 
@@ -79,4 +87,4 @@ With Python, PyYAML (`python -m pip install PyYAML`), and Node.js installed, run
 
 ## disclaimer
 
-“The United States Department of Commerce (DOC) GitHub project code is provided on an ‘as is’ basis and the user assumes responsibility for its use. DOC has relinquished control of the information and no longer has responsibility to protect the integrity, confidentiality, or availability of the information. Any claims against the Department of Commerce stemming from the use of its GitHub project will be governed by all applicable Federal law. Any reference to specific commercial products, processes, or services by service mark, trademark, manufacturer, or otherwise, does not constitute or imply their endorsement, recommendation or favoring by the Department of Commerce. The Department of Commerce seal and logo, or the seal and logo of a DOC bureau, shall not be used in any manner to imply endorsement of any commercial product or activity by DOC or the United States Government.”
+The United States Department of Commerce (DOC) GitHub project code is provided on an "as is" basis and the user assumes responsibility for its use. DOC has relinquished control of the information and no longer has responsibility to protect the integrity, confidentiality, or availability of the information. Any claims against the Department of Commerce stemming from the use of its GitHub project will be governed by all applicable Federal law. Any reference to specific commercial products, processes, or services by service mark, trademark, manufacturer, or otherwise, does not constitute or imply their endorsement, recommendation or favoring by the Department of Commerce. The Department of Commerce seal and logo, or the seal and logo of a DOC bureau, shall not be used in any manner to imply endorsement of any commercial product or activity by DOC or the United States Government.
