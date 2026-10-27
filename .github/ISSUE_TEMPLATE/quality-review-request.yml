@@ -1,5 +1,5 @@
-name: Quality Review Request form
-description: Request that a software tool be quality reviewed.
+name: FIT Peer Review Request
+description: Request peer review for a software tool.
 title: "Review Request: [tool name] "
 labels: ["Review Request"]
 assignees:
