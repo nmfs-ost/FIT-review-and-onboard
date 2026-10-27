@@ -34,13 +34,15 @@ jobs:
             const reviewChecklist = `
             ## Basics \- for the FIT coordinator to fill out
 
+            Aim to complete these checks within one week of submission. This is a target, not a deadline; discuss delays on this issue.
+
             ## Mandatory items
 
             - [ ] Confirm that tool is in scope per the [FIT scope statement](https://noaa-fisheries-integrated-toolbox.github.io/resources/about/)  
             - [ ] Metadata is complete, as determined by running against the [json schema](https://github.com/nmfs-ost/FIT_web_templating/blob/main/schema_model_list.json)
             - [ ] Links in metadata work
             - [ ] A license is included (where appropriate, [an open source license](https://opensource.org/licenses/)).
-            - [ ] Software version is included
+            - [ ] Software version is included, or a GitHub releases link is provided (a static version is not required when using GitHub releases).
             - [ ] Source code is linked (note: check this off if source code is not provided and there is a valid reason for source code to be kept private)  
             - [ ] For NOAA-developed products where the source code is linked, there is a [NOAA disclaimer](https://github.com/nmfs-ost/FIT-resource-files?tab=readme-ov-file#noaa-license) on the readme of the source code.  
             - [ ] For Web apps and other apps that use web technologies: All errors flagged by [ANDI](https://www.ssa.gov/accessibility/andi/help/install.html) are resolved   

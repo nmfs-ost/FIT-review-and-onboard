@@ -40,10 +40,14 @@ jobs:
             // Define the new checklist in GitHub-flavored Markdown.
             const reviewChecklist = mention? `${mention}, thank you for volunteering to review this submission to the Fisheries Integrated Toolbox. This is a checklist-based review.
 
+            Aim to finish within four weeks of assignment; this is a target, not a hard deadline. Discuss blockers or extensions in this issue.
+
             1. Generate your review checklist by commenting on this issue using the command \`/generate-reviewer-checklist\`
-            2. Fill out the checklist using the submitted information provided by the developer (scroll up to the top of the issue). Helpful hint: Duplicate your browser window to see the developer's submitted intake form and the review checklist simultaneously. 
-            3. If you feel detailed changes are needed to meet checklist requirements, or have a specific suggestion for a developer, we suggest opening issues on the repository itself to avoid lengthy discussions on the review thread.
+            2. Check off items on the checklist as you verify that they are complete.
+            3. Keep review findings and questions in this submission issue. If detailed implementation work needs a source-repository issue, link it here so this remains the review record.
             4. Please feel free to ask the developer any questions, as this is an open review process.
+
+            See the [reviewer guide](https://github.com/nmfs-ost/FIT-test-quality-checks/blob/main/reviewer-guide.md) for test definitions, safe testing guidance, and optional review aids.
 
             `:
             'Please provide the GitHub username of the reviewer after the command, e.g., \`/generate-reviewer-instructions @github-name\`.';

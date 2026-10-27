@@ -1,0 +1,111 @@
+name: 'Track Review Process'
+
+on:
+  issues:
+    types: [opened, labeled]
+  issue_comment:
+    types: [created]
+
+permissions:
+  issues: write
+
+concurrency:
+  group: review-process-${{ github.event.issue.number }}
+  cancel-in-progress: false
+
+jobs:
+  track-review:
+    if: >-
+      !github.event.issue.pull_request &&
+      contains(github.event.issue.labels.*.name, 'Review Request') &&
+      ((github.event_name == 'issues' &&
+        (github.event.action == 'opened' || github.event.label.name == 'Review Request')) ||
+       (github.event_name == 'issue_comment' &&
+        contains(fromJSON('["OWNER", "MEMBER"]'), github.event.comment.author_association) &&
+        (startsWith(github.event.comment.body, '/generate-basics-checklist') ||
+         startsWith(github.event.comment.body, '/generate-reviewer-instructions') ||
+         startsWith(github.event.comment.body, '/generate-post-acceptance-checklist') ||
+         startsWith(github.event.comment.body, '/generate-acceptance-message'))))
+    runs-on: ubuntu-latest
+    steps:
+      - name: Welcome submissions and update stage labels
+        uses: actions/github-script@v9
+        with:
+          script: |
+            const issueParams = { ...context.repo, issue_number: context.issue.number };
+            const { data: issue } = await github.rest.issues.get(issueParams);
+            if (issue.pull_request || !issue.labels.some(label => label.name === 'Review Request')) {
+              return;
+            }
+
+            const stages = [
+              { name: 'review: submitted', color: 'D4C5F9', description: 'Awaiting coordinator basic checks' },
+              { name: 'review: basic checks', color: 'FBCA04', description: 'Coordinator basic checks requested' },
+              { name: 'review: peer review', color: '1D76DB', description: 'Reviewer instructions requested' },
+              { name: 'review: post-acceptance', color: '0E8A16', description: 'Post-acceptance publication tasks requested' },
+              { name: 'review: accepted', color: '006B75', description: 'Coordinator requested the final acceptance message' },
+            ];
+            let stage = stages[0];
+
+            if (context.eventName === 'issue_comment') {
+              const comment = context.payload.comment;
+              if (!['OWNER', 'MEMBER'].includes(comment.author_association)) {
+                return;
+              }
+              const commands = [
+                '/generate-basics-checklist',
+                '/generate-reviewer-instructions',
+                '/generate-post-acceptance-checklist',
+                '/generate-acceptance-message',
+              ];
+              const commandIndex = commands.findIndex(command => comment.body.startsWith(command));
+              if (commandIndex === -1 || (commandIndex === 1 && !/@([A-Za-z0-9-]+)/.test(comment.body))) {
+                return;
+              }
+              stage = stages[commandIndex + 1];
+            } else {
+              if (context.eventName !== 'issues' ||
+                  (context.payload.action !== 'opened' && context.payload.label?.name !== 'Review Request')) {
+                return;
+              }
+              const marker = '<!-- fit-review-welcome -->';
+              const comments = await github.paginate(github.rest.issues.listComments, {
+                ...issueParams,
+                per_page: 100,
+              });
+              if (!comments.some(comment => comment.user?.type === 'Bot' && comment.body?.includes(marker))) {
+                const body = `${marker}
+            @${issue.user.login}, thank you for submitting your tool for FIT quality review!
+
+              See the README for the [peer review sequence](https://github.com/nmfs-ost/FIT-test-quality-checks/blob/main/README.md#process-for-review) and [required commands](https://github.com/nmfs-ost/FIT-test-quality-checks/blob/main/README.md#command-quick-reference).
+
+              Please keep review questions and updates in this submission issue.`;
+                await github.rest.issues.createComment({ ...issueParams, body });
+              }
+              if (issue.labels.some(label => stages.some(existing => existing.name === label.name))) {
+                return;
+              }
+            }
+
+            try {
+              await github.rest.issues.getLabel({ ...context.repo, name: stage.name });
+            } catch (error) {
+              if (error.status !== 404) throw error;
+              try {
+                await github.rest.issues.createLabel({ ...context.repo, ...stage });
+              } catch (creationError) {
+                if (creationError.status !== 422) throw creationError;
+                await github.rest.issues.getLabel({ ...context.repo, name: stage.name });
+              }
+            }
+
+            await github.rest.issues.addLabels({ ...issueParams, labels: [stage.name] });
+            for (const label of issue.labels) {
+              if (label.name !== stage.name && stages.some(existing => existing.name === label.name)) {
+                try {
+                  await github.rest.issues.removeLabel({ ...issueParams, name: label.name });
+                } catch (error) {
+                  if (error.status !== 404) throw error;
+                }
+              }
+            }

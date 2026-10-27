@@ -1,0 +1,40 @@
+name: 'Generate Acceptance Message'
+
+on:
+  issue_comment:
+    types: [created]
+
+permissions:
+  issues: write
+
+jobs:
+  add-acceptance-message:
+    if: startsWith(github.event.comment.body, '/generate-acceptance-message') && contains(fromJSON('["OWNER", "MEMBER"]'), github.event.comment.author_association)
+    runs-on: ubuntu-latest
+    steps:
+      - name: Add Acceptance Message
+        uses: actions/github-script@v9
+        with:
+          script: |
+            const issue = context.payload.issue;
+            const toolNameMatch = (issue.body || '').match(/^### Tool name\s*\r?\n([\s\S]*?)(?=^### |$(?![\s\S]))/m);
+            const toolName = toolNameMatch ? toolNameMatch[1].trim() : '';
+            const software = toolName && toolName !== '_No response_' ? toolName : 'your software';
+
+            const author = `@${issue.user.login}`;
+            const acceptanceMessage = `${author} Congrats on ${software} passing the FIT tool quality checks peer review! \u{1F389} A badge is now included on the FIT homepage and the software's landing page.
+
+            You are welcome to display a badge on your tool\u2019s GitHub readme (optional) that shows that ${software} has passed the FIT quality checks. The code for doing this is:
+
+            \`\`\`
+            [![A software badge showing that this tool has passed the FIT quality checks](https://img.shields.io/badge/FIT_quality_checks-passed-759A06)](https://nmfs-ost.github.io/noaa-fit)
+            \`\`\`
+
+            Feel free to reach out if you have any questions or have any additional comments about how the process went. Congratulations again!`;
+
+            await github.rest.issues.updateComment({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              comment_id: context.payload.comment.id,
+              body: acceptanceMessage,
+            });

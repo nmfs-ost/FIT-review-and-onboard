@@ -2,7 +2,9 @@
 
 Thank you for considering your tool for inclusion in the Fisheries Integrated Toolbox (FIT)! This guide is designed to assist tool authors with the submission process.
 
-Please inform the FIT committee of any necessary clarifications or corrections by opening an [issue](https://github.com/nmfs-ost/FIT-onboard-and-update/issues).
+To request review, [open an issue and fill out the Quality Review Request form](https://github.com/nmfs-ost/FIT-test-quality-checks/issues/new?template=quality-review-request.yml) in this repository. Include links to your source repository, documentation, and test evidence. Keep follow-up questions, revisions, and publication coordination in that issue; a second onboarding issue is not needed.
+
+For the sequence, target timeframes, command reference, and a worked example, see the [review process](README.md#process-for-review). Report unclear instructions in the submission issue or [open a documentation issue](https://github.com/nmfs-ost/FIT-test-quality-checks/issues).
 
 
 ## Meeting the checklist requirements
@@ -10,6 +12,8 @@ Please inform the FIT committee of any necessary clarifications or corrections b
 Review of software for inclusion in the FIT is checklist-based. A NOAA internal reviewer will assess your tool for items on the reviewer checklist. The purpose of this process is to offer feedback, enabling you to modify your tool to align with the necessary standards for FIT inclusion.
 
 The FIT committee recognizes that some checklist items may not be widespread practices within NOAA Fisheries, so this guide is provided as support for implementing new practices.
+
+The form marks some fields as required to submit the issue and leaves others optional. An optional field can still provide evidence for a checklist item; blank fields are treated as information that was not provided, not as confirmation that the item is met. Follow the checklist requirements below as well as the field-specific instructions in the form.
 
 Below are descriptions and guidance on how to meet criteria on the reviewer checklist.
 
@@ -41,13 +45,15 @@ While software licenses can be changed, this typically requires agreement from a
 
 #### Software version is included
 
-A software version should be included in the onboarding form. The easiest way to ensure the software version stays up to date on the FIT website is to use [GitHub releases](https://docs.github.com/en/repositories/releasing-projects-on-github/about-releases) to share releases of software.
+A software version or a GitHub releases link should be included in the onboarding form. When using [GitHub releases](https://docs.github.com/en/repositories/releasing-projects-on-github/about-releases), leave the static version number blank and provide the source repository link.
 
 Do you still need to decide how to [version](https://en.wikipedia.org/wiki/Software_versioning) the software? A common option is using [semantic versioning](https://semver.org/), although there are other standard schemes.
 
 #### Source code is linked
 
 Generally, source code should be made available for tools on the FIT, as typically developed NOAA federal employee code should have a permissive open source license. However, there may be special instances where code is not made available, such as if confidential fisheries information is included in the codebase.
+
+Use the direct repository URL in the form's Source Code Link field, not a project website or documentation landing page.
 
 #### NOAA Disclaimer on ReadMe
 
@@ -90,13 +96,15 @@ For first-time users, a "getting started" example is crucial for orienting them 
 
 #### Citation Instructions
 
-To ensure users properly credit your work, provide citation instructions that include a Digital Object Identifier (DOI). A DOI offers a persistent link to your software or an accompanying paper.
+To ensure users properly credit your work, provide citation instructions, preferably with a Digital Object Identifier (DOI), as requested in the form. A DOI offers a persistent link to your software or an accompanying paper.
 
 There are three primary methods for obtaining a DOI for your software:
 
 1. Academic Publication: This involves writing and publishing an academic paper. Users can then cite this publication. While it demands the most effort and time, academic publications are a recognized form of currency in scholarly environments.
 2. Software Repository (e.g., [Zenodo](https://zenodo.org/)): Depositing your software in a repository like Zenodo will generate a citable DOI for your submission. This method requires the least effort and time, but it doesn't offer users an additional resource for learning about the tool.
 3. Open Source Software Journal (e.g., [Journal of Open Source Software](https://joss.theoj.org/)): Journals such as the Journal of Open Source Software require a concise paper, allowing software authors to quickly prepare a submission. This option demands less effort than typical academic publications, though the publication timeline can still be lengthy depending on the review process.
+
+Consider archiving releasable code and data in [Zenodo](https://zenodo.org/) for persistent access and citable DOIs. Include author [ORCIDs](https://orcid.org/) in the archive metadata, a license, and links between related software and data records. Archive the release used for review, not just a moving development branch. Do not upload confidential, restricted, or third-party materials without permission.
 
 #### Tool Use Documentation
 
@@ -107,11 +115,17 @@ Tool use documentation, such as a user guide or function reference, should provi
 
 To be onboarded to the FIT, a tool must meet the criteria described below.
 
-#### 1. Integrated Tests
+#### Testing narrative
 
-Integrated tests show that the software system works together as a whole - for example, an integrated test could be completed in a "Getting Started" example. Ideally, these tests are completed within a testing framework, but sometimes that is not possible. In these cases, sharing documentation demonstrating that a manual integration test has been completed is acceptable.
+Use the test fields in the submission form to explain how a reviewer can evaluate your tests; add details in Comments if needed. Include the reviewed version or commit, operating system, language versions and dependencies, commands or manual steps, input data, expected outputs, approximate runtime, and any known limitations. Explain how to interpret success or failure.
 
-#### 2. Unit Testing Framework
+For example: "For commit abc123 on Python 3.12/Linux, install the documented dependencies, run `python tests/check_example.py` against `data/example.csv`, and compare the generated totals with `tests/expected.csv` using the documented tolerance. This takes about two minutes. The linked logs show the results and the coverage command and report." Adapt the commands and expected results to your tool.
+
+#### Integration and end-to-end tests
+
+Integration tests check whether components work correctly together, such as a data reader passing its output to a model. End-to-end tests exercise a complete user workflow from input to final output. A getting started example can serve as an end-to-end test if it includes expected results for comparison. Provide steps and results for both; manual or automated testing is acceptable.
+
+#### Language-specific check results
 
 A unit testing framework provides a scaffolding for easily writing and running tests of your software. 
 
@@ -119,30 +133,27 @@ For R package developers, this is likely done using the [testthat](https://testt
 
 For applications, consider GUI testing toolkits like shinytest2 for Shiny apps or Selenium for web applications.
 
-#### 3. Code Coverage
+#### Code coverage
 
-Once a unit testing framework is established, it is possible to calculate test coverage to understand how much of your codebase is being tested.
+Greater than **40% line coverage** is mandatory. Include the coverage report and measurement command for the reviewed version, and explain excluded code. 
 
 For R package developers, the [covr](https://covr.r-lib.org/) package provides this functionality. For Python, [Coverage.py](https://coverage.readthedocs.io/en/7.10.2/) and [pytest-cov](https://pypi.org/project/pytest-cov/) are popular tools. For C++, [gcovr](https://gcovr.com/en/stable/) could be used.
 
-#### 4. Sample Data Provided
+#### Sample Data Availability
 
-For each tool, provide at least one sample input dataset and the corresponding application results. Include instructions on how to run the application with the dataset, a description of the results, and/or a results dataset or plot for comparison.
+In the Sample Data Availability field, describe and link any available sample data that validates the tool's functionality. If none are available, state that. Where sample data are available, include instructions on how to run the tool with the data and a description of the results, and/or provide a results dataset or plot for comparison.
 
-
-#### 5. Usability Tests
-
-Provide information about usability tests that have been conducted, what was found, and what changes were made as the result of the usability tests.
-
-When testing an app for usability, users should consider the following best practices:
-The user manual should provide clear guidance on navigating the graphical user interface (GUI).
-All UI features should be intuitive and self-explanatory.
-Hover-over help should be available for all widgets.
-The application should provide feedback to the user after every interaction with the GUI, confirming that the action has been processed.
-
-### Sound practice items (not mandatory)
+### Sound practices (not mandatory)
 
 These checklist items could help improve the software's documentation and testing, however they are not required for onboarding to the Fisheries Integrated Toolbox.
+
+#### Unit testing framework
+
+A unit testing framework makes it easier to write and run isolated tests of functions or components with one command. For R, consider [testthat](https://testthat.r-lib.org/) and the [Testing Basics chapter of R Packages](https://r-pkgs.org/testing-basics.html). Python options include pytest and unittest; C++ options include googletest. For application testing, shinytest2 or Selenium may also help. Using a framework is optional, while the mandatory line-coverage threshold still applies.
+
+#### Regression and correctness tests
+
+Regression tests detect reintroduced bugs or unexpected changes to established behavior, often by retaining a test for each fixed bug or comparing with a trusted baseline. Correctness tests compare results with known answers, analytical solutions, or independent reference implementations. State appropriate numerical tolerances. These describe test purposes and can be implemented as unit, integration, or end-to-end tests; a saved output is not automatically proof of correctness.
 
 #### Advanced Features Example
 

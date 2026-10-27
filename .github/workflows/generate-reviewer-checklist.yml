@@ -31,6 +31,7 @@ jobs:
 
             Thanks for reviewing this tool\! Please use the information submitted by the tool authors to complete the checklist.
 
+            Aim to complete the review within four weeks of assignment, discussing extensions on this issue.
             If you have any questions, you can ask the tool author directly on this thread by using the \`@\` in front of their github username in a comment.
 
             Check off all items that are complete.
@@ -40,24 +41,24 @@ jobs:
             
             ## Mandatory items
 
-            ### Documentation
+            ### Installation and example verification
 
-            - [ ] Background text includes a description of the tool and its motivation and/or scope. If appropriate, it also includes links to examples where the tool has informed science-based decision making.
             - [ ] Installation instructions are provided that the reviewer can run. Reviewer, please attempt installation and only check this off if install is verified. If this is a web app or other software type that does not require installation, check this off.
             - [ ] A getting started example (e.g., R vignette) is provided that the reviewer can run. Reviewer, attempt to run this example and only check this off if verified to run.
-            - [ ] Instructions on how to cite the tool are included.
-            - [ ] Documentation on how to use the tool is provided in an appropriate form (e.g., a user manual, or function reference: roxygen, doxygen, Sphinx).
 
             ### Tests
 
-            - [ ] [Integrated tests](https://en.wikipedia.org/wiki/Integration_testing) have been conducted (manually or within a testing framework).
-            - [ ] A unit testing framework (e.g., testthat, googletest, unittest) is used that allows running tests with a single command.
+            - [ ] The author's testing narrative provides reproducible steps and expected results; the reviewer has followed the steps and compared the results.
+            - [ ] Integration tests demonstrate that components work together, and an end-to-end example demonstrates a complete workflow with expected results (manual or automated).
+            - [ ] Author-provided language-specific check results have been reviewed for the submitted version, including explanations of warnings or failures (e.g., R CMD check for R packages; build and test output for Python; or a justified alternative).
             - [ ] [Code coverage](https://www.atlassian.com/continuous-delivery/software-testing/code-coverage) is acceptable (\>40% line coverage).
             - [ ] Sample data provided to validate functionality.
-            - [ ] [Usability tests](https://digital.gov/topics/usability) have been conducted and results are sufficiently described (can be qualitative).
 
-            ### Good practices items (not mandatory)
+            ### Sound practices (not mandatory)
 
+            - [ ] A unit testing framework (e.g., testthat, googletest, unittest) is used that allows running tests with a single command.
+            - [ ] Regression tests check that changes do not reintroduce bugs or unexpectedly change established results.
+            - [ ] Correctness tests compare results with known answers, analytical solutions, or independent reference implementations.
             - [ ] An example demonstrating advanced features or functions is included.
             - [ ] Web-hosted documentation is available (e.g., pkgdown site, doxygen site).
             - [ ] [Code coverage](https://www.atlassian.com/continuous-delivery/software-testing/code-coverage) is excellent (\>70% line coverage).

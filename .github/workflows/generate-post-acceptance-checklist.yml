@@ -31,6 +31,7 @@ jobs:
 
             For the FIT coordinator
 
+            - [ ] Fork the source code repository to the \`nmfs-ost\` organization if it is not already hosted within the NOAA-NMFS GitHub Enterprise (check this off as not applicable if it is already hosted there or source code is not available).
             - [ ] Add to FIT test site and have author verify it looks as expected ([instructions for coordinator](https://github.com/nmfs-ost/fit_web_templating))
             - [ ] If R package, add to the [FIT R universe](https://noaa-fisheries-integrated-toolbox.r-universe.dev/builds) ([specification file](https://github.com/noaa-fisheries-integrated-toolbox/noaa-fisheries-integrated-toolbox.r-universe.dev/blob/main/packages.json))
             - [ ] Add to FIT production site

@@ -118,7 +118,7 @@ body:
     id: citelink
     attributes:
       label: Citation
-      description: Let users know how to cite the tool. Preferably, a link to the DOI for an article. Other options include using [Zenodo](https://zenodo.org/) to generate a DOI for the source code. If including a text string instead, please format it using [APA style](https://apastyle.apa.org/style-grammar-guidelines/references/examples).
+      description: Provide citation instructions, preferably a DOI. Consider archiving releasable code and data in [Zenodo](https://zenodo.org/) for persistent access and citable DOIs, and add authors' ORCIDs to the archive metadata. Do not upload confidential or restricted data. If including a text citation, use [APA style](https://apastyle.apa.org/style-grammar-guidelines/references/examples).
       placeholder: https://doi.org/10.1016/j.fishres.2012.10.012
     validations:
       required: true
@@ -155,7 +155,7 @@ body:
     id: integratedtests
     attributes:
       label: Integrated tests
-      description: describe and link to any integrated tests that have been done. These could be done manually or within a testing framework. Integrated tests mean running the software end-to end to make sure it works.
+      description: Describe how components are tested together (integration tests), plus a complete workflow from input to expected output (end-to-end testing). Link the steps and results; manual or automated tests are acceptable. A getting started example can demonstrate an end-to-end test when expected results are provided.
   - type: textarea
     id: unittest
     attributes:
@@ -165,7 +165,9 @@ body:
     id: testcoverage
     attributes:
       label: Test coverage
-      description: Report the test coverage of your tool. If possible, link to the the coverage of your tool online (e.g., on codecov or coveralls). Note that calculating this metric will only be possible if using a unit testing framework. For R users, covr::package_coverage() can be used, or covr can be used to upload the results to codecov or coveralls.
+      description: Greater than 40% line coverage is required. Provide a report for the reviewed version and the command used to measure coverage (e.g., covr for R, Coverage.py for Python, or gcovr for C++), including any excluded code.
+    validations:
+      required: true
   - type: textarea
     id: continuousintegration
     attributes:
@@ -176,11 +178,6 @@ body:
     attributes:
       label: Sample Data Availability
       description: Describe and link to any available sample data that validates functionality of program.
-  - type: textarea
-    id: usabilitytesting
-    attributes:
-      label: Usability Testing
-      description: Describe and link to any usability tests conducted to improve the functionality of your tool.
   - type: input
     id: logo
     attributes:
@@ -270,8 +267,8 @@ body:
     id: exelink
     attributes:
       label: Executable Link
-      description: Link the compiled version of the tool, if available.
-      placeholder: https://github.com/nmfs-fish-tools/SSMSE/releases
+      description: Link the compiled version of the tool, if available. A releases/latest link is preferred over a hard-coded release URL for the public listing.
+      placeholder: https://github.com/nmfs-fish-tools/SSMSE/releases/latest
     validations:
       required: false
   - type: input
@@ -293,6 +290,7 @@ body:
     id: sourcecodelink
     attributes:
       label: Source Code Link
+      description: Link directly to the source code repository.
       placeholder: https://github.com/nmfs-fish-tools/SSMSE
     validations:
       required: false
@@ -388,7 +386,7 @@ body:
     id: releases
     attributes:
       label: Uses Github Releases
-      description: Does the codebase use releases on GitHub? Must include Source Code Link above if answering yes. (If not, we HIGHLY recommend considering using releases to keep the version number on the toolbox up to date)
+      description: Does the codebase use GitHub releases? If yes, include Source Code Link and leave Static version number blank.
       options: 
         - "Yes"
         - "No"
@@ -399,7 +397,7 @@ body:
     id: versionnumber
     attributes:
       label: Static version number
-      description: If not using GitHub releases and the version number is not likely to change, please add the latest version number. Please don't provide a version number if it will change frequently, as we don't have a good way to make sure it stays up to date if not using GitHub releases.
+      description: Leave blank if using GitHub releases; a static version number is not required in that case. Otherwise, provide the current version and notify the FIT coordinator when it changes.
       placeholder: 0.9.0
     validations:
       required: false
