@@ -8,7 +8,7 @@ body:
   - type: markdown
     attributes:
       value: |
-        Thanks for submitting tool quality review request to the NOAA Fisheries Integrated Toolbox (FIT)! To learn more about the FIT and the software it contains, see [the FIT's About Page](https://noaa-fisheries-integrated-toolbox.github.io/resources/about/). To add links within text, please use html a tag syntax with escaped quotations (e.g., `<a href=\"https://noaa-fisheries-integrated-toolbox.github.io/\">FIT</a>`) rather than using markdown syntax. Plain URLs are also acceptable. 
+        Thanks for submitting tool quality review request to the NOAA Fisheries Integrated Toolbox (FIT)! To learn more about the FIT and the software it contains, see [the FIT's About Page](https://noaa-fisheries-integrated-toolbox.github.io/resources/about/). For any required sections that do not apply or are not possible to answer, please explain the details in the required box and/or note that the information was missing in the Comments section.
   - type: dropdown
     id: activedev
     attributes:
@@ -85,104 +85,13 @@ body:
         - "3"
         - "4"
         - "5"
-  - type: markdown
-    attributes:
-      value: |
-        ## Documentation checklist
-        Help the reviewer complete the documentation checklist. Missing data will be assumed to not exist.
-  - type: textarea
-    id: background
-    attributes:
-      label: Background Text
-      description: One paragraph general description of the tool for users. Please include the motivation and/or scope of the tool and links to examples where the tool has informed science-based decision making, if appropriate. This will be the main text on the model landing page.
-      placeholder: The Age Structured Assessment Program (ASAP) is an age-structured model that uses forward computations assuming separability of fishing mortality into year and age components to estimate population sizes given observed catches, catch-at-age, and indices of abundance. Discards can be treated explicitly. The separability assumption is relaxed by allowing for fleet-specific computations and by allowing the selectivity at age to change smoothly over time or in blocks of years. The software can also allow the catchability associated with each abundance index to vary smoothly with time....
     validations:
       required: true
-  - type: textarea
-    id: installation
-    attributes:
-      label: Installation instructions
-      description: Short instructions on how to use the tool. Please include [html formatting](https://www.simplehtmlguide.com/cheatsheet.php) instead of markdown.
-      value: "In R, install from GitHub:<br><br><code>remotes::install_github(\"nmfs-fish-tools/SSMSE\")</code><br><br>More details on installation are available on <a href=\"https://github.com/nmfs-fish-tools/ssmse?tab=readme-ov-file#installing-the-ssmse-r-package\">the SSMSE readme</a>."
-    validations:
-      required: false
-  - type: textarea
-    id: exampleofuse
-    attributes:
-      label: Link to a getting started example
-      description: Link to a basic example of use that the reviewer to run.
-      placeholder:
-    validations:
-      required: false
-  - type: input
-    id: citelink
-    attributes:
-      label: Citation
-      description: Provide citation instructions, preferably a DOI. Consider archiving releasable code and data in [Zenodo](https://zenodo.org/) for persistent access and citable DOIs, and add authors' ORCIDs to the archive metadata. Do not upload confidential or restricted data. If including a text citation, use [APA style](https://apastyle.apa.org/style-grammar-guidelines/references/examples).
-      placeholder: https://doi.org/10.1016/j.fishres.2012.10.012
-    validations:
-      required: true
-  - type: textarea
-    id: documentationreflink
-    attributes:
-      label: Link and or description of documentation
-      description: Link and/or describe where and in what form documentation of how to use the tool in appropriate form exists. E.g., this could be a user manual, furnction reference for R documentation, doxygen documentation, or other formats.
-      placeholder:
-    validations:
-      required: false
-  - type: textarea
-    id: additionalexamples
-    attributes:
-      label: Example demonstrating advanced features or functions
-      description: If available, link to and describe one or more examples demonstrating advanced features of the tool.
-      placeholder:
-    validations:
-      required: false
-  - type: textarea
-    id: webhosteddocs
-    attributes:
-      label: Web-hosted documentation
-      description: Link to any web hosted documentation (e.g., a pkgdown site for R packages, doxygen site, readthedocs, sphinx) 
-      placeholder:
-    validations:
-      required: false
-  - type: markdown
-    attributes:
-      value: |
-        ## Tests checklist
-        Help the reviewer complete the tests checklist. Missing data will be assumed to not exist.
-  - type: textarea
-    id: integratedtests
-    attributes:
-      label: Integrated tests
-      description: Describe how components are tested together (integration tests), plus a complete workflow from input to expected output (end-to-end testing). Link the steps and results; manual or automated tests are acceptable. A getting started example can demonstrate an end-to-end test when expected results are provided.
-  - type: textarea
-    id: unittest
-    attributes:
-      label: Unit Testing 
-      description: Describe any unit testing framework used (e.g., testthat, googletest, unittest) that allows running tests with a single command. Please link to your unit tests, if they are in a code repository.
-  - type: textarea
-    id: testcoverage
-    attributes:
-      label: Test coverage
-      description: Greater than 40% line coverage is required. Provide a report for the reviewed version and the command used to measure coverage (e.g., covr for R, Coverage.py for Python, or gcovr for C++), including any excluded code.
-    validations:
-      required: true
-  - type: textarea
-    id: continuousintegration
-    attributes:
-      label: Continuous Integration
-      description: Describe and link to any tests of your package that run automatically on code changes or on a schedule (e.g., on GitHub Actions, Travis, Jenkins)
-  - type: textarea
-    id: sampledata
-    attributes:
-      label: Sample Data Availability
-      description: Describe and link to any available sample data that validates functionality of program.
   - type: markdown
     attributes:
       value: |
         ## Super Intelligence (SI) use
-        If SI was used to develop this software, follow the disclosure requirements in the <a href=\"https://docs.google.com/document/d/1kR-eR7Zf19TuV4zQrmkn9EfQbD24hgz_OF81drvFR3g/edit?tab=t.0#heading=h.z4mxxom45hcx\">draft NOAA SI Handbook</a>. All software must be human reviewed and validated before FIT peer review. The FIT peer reviewer is not responsible for providing an initial review of SI-generated code.
+        If SI was used to develop this software, follow the disclosure requirements in the [draft NOAA SI Handbook](https://docs.google.com/document/d/1kR-eR7Zf19TuV4zQrmkn9EfQbD24hgz_OF81drvFR3g/edit?tab=t.0#heading=h.z4mxxom45hcx). All software must be human reviewed and validated before FIT peer review. The FIT peer reviewer is not responsible for providing an initial review of SI-generated code.
   - type: dropdown
     id: siused
     attributes:
@@ -210,6 +119,103 @@ body:
           required: true
     validations:
       required: true
+  - type: markdown
+    attributes:
+      value: |
+        ## Documentation checklist
+        Help the reviewer complete the documentation checklist. Missing data will be assumed to not exist.
+  - type: textarea
+    id: background
+    attributes:
+      label: Background Text
+      description: One paragraph general description of the tool for users. Please include the motivation and/or scope of the tool and links to examples where the tool has informed science-based decision making, if appropriate. This will be the main text on the model landing page.
+      placeholder: The Age Structured Assessment Program (ASAP) is an age-structured model that uses forward computations assuming separability of fishing mortality into year and age components to estimate population sizes given observed catches, catch-at-age, and indices of abundance. Discards can be treated explicitly. The separability assumption is relaxed by allowing for fleet-specific computations and by allowing the selectivity at age to change smoothly over time or in blocks of years. The software can also allow the catchability associated with each abundance index to vary smoothly with time....
+    validations:
+      required: true
+  - type: textarea
+    id: installation
+    attributes:
+      label: Installation instructions
+      description: Short instructions on how to use the tool.
+      value: "In R, install from GitHub:\n\n`remotes::install_github(\"nmfs-fish-tools/SSMSE\")`\n\nMore details on installation are available on [the SSMSE readme](https://github.com/nmfs-fish-tools/ssmse?tab=readme-ov-file#installing-the-ssmse-r-package)."
+    validations:
+      required: true
+  - type: textarea
+    id: exampleofuse
+    attributes:
+      label: Link to a getting started example
+      description: Link to a basic example of use that the reviewer to run.
+      placeholder:
+    validations:
+      required: true
+  - type: input
+    id: citelink
+    attributes:
+      label: Citation
+      description: Provide citation instructions, preferably a DOI. Consider archiving releasable code and data in [Zenodo](https://zenodo.org/) for persistent access and citable DOIs, and add authors' ORCIDs to the archive metadata. Do not upload confidential or restricted data. If including a text citation, use [APA style](https://apastyle.apa.org/style-grammar-guidelines/references/examples).
+      placeholder: https://doi.org/10.1016/j.fishres.2012.10.012
+    validations:
+      required: true
+  - type: textarea
+    id: documentationreflink
+    attributes:
+      label: Link and or description of documentation
+      description: Link and/or describe where and in what form documentation of how to use the tool in appropriate form exists. E.g., this could be a user manual, furnction reference for R documentation, doxygen documentation, or other formats.
+      placeholder:
+    validations:
+      required: true
+  - type: textarea
+    id: additionalexamples
+    attributes:
+      label: Example demonstrating advanced features or functions
+      description: If available, link to and describe one or more examples demonstrating advanced features of the tool.
+      placeholder:
+    validations:
+      required: true
+  - type: textarea
+    id: webhosteddocs
+    attributes:
+      label: Web-hosted documentation
+      description: Link to any web hosted documentation (e.g., a pkgdown site for R packages, doxygen site, readthedocs, sphinx) 
+      placeholder:
+    validations:
+      required: true
+  - type: markdown
+    attributes:
+      value: |
+        ## Tests checklist
+        Help the reviewer complete the tests checklist. Missing data will be assumed to not exist.
+  - type: textarea
+    id: integratedtests
+    attributes:
+      label: Integrated tests
+      description: Describe how components are tested together (integration tests), plus a complete workflow from input to expected output (end-to-end testing). Link the steps and results; manual or automated tests are acceptable. A getting started example can demonstrate an end-to-end test when expected results are provided.
+    validations:
+      required: true
+  - type: textarea
+    id: unittest
+    attributes:
+      label: Unit Testing 
+      description: Describe any unit testing framework used (e.g., testthat, googletest, unittest) that allows running tests with a single command. Please link to your unit tests, if they are in a code repository.
+    validations:
+      required: true
+  - type: textarea
+    id: testcoverage
+    attributes:
+      label: Test coverage
+      description: Greater than 40% line coverage is required. Provide a report for the reviewed version and the command used to measure coverage (e.g., covr for R, Coverage.py for Python, or gcovr for C++), including any excluded code.
+    validations:
+      required: true
+  - type: textarea
+    id: continuousintegration
+    attributes:
+      label: Continuous Integration
+      description: Describe and link to any tests of your package that run automatically on code changes or on a schedule (e.g., on GitHub Actions, Travis, Jenkins)
+  - type: textarea
+    id: sampledata
+    attributes:
+      label: Sample Data Availability
+      description: Describe and link to any available sample data that validates functionality of program.
   - type: input
     id: logo
     attributes:
@@ -270,17 +276,17 @@ body:
     id: associatedtools
     attributes:
       label: Associated Tools
-      description: Provide names and links of any associated tools in format of example shown below.
+      description: Provide names and links of any associated tools in format of example shown below. Write none if there are not any associated tools.
       placeholder: r4ss https://r4ss.github.io/r4ss/, ss3sim https://ss3sim.github.io/ss3sim/
     validations:
-      required: false
+      required: true
   - type: textarea
     id: useinmanagement
     attributes:
       label: Tool's Use in Management
       description: Please describe how the tool has been used in management processes. Links to reports or other documents encouraged!
     validations:
-      required: false
+      required: true
   - type: input
     id: userorganizations
     attributes:
