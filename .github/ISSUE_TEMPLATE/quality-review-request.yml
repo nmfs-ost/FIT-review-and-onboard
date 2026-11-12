@@ -251,6 +251,14 @@ body:
     validations:
       required: true
   - type: textarea
+    id: maintenanceplan
+    attributes:
+      label: Software Maintenance Plan
+      description: Describe how the software will be maintained going forward, including who will maintain it, how bug reports or user questions will be handled, and any plans for updates or releases.
+      placeholder: Describe the planned maintenance approach.
+    validations:
+      required: true
+  - type: textarea
     id: references
     attributes:
       label: References
