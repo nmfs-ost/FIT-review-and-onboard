@@ -240,6 +240,8 @@ body:
       label: License
       description: Please link to the license file for this project. This should be an [open source license](https://opensource.org/licenses/).  Commonly used open source licenses include MIT, GPL 3.0, and Apache 2.0. The unlicense is also an option.
       placeholder: https://github.com/nmfs-fish-tools/SSMSE/blob/main/LICENSE.MD
+    validations:
+      required: true
   - type: input
     id: maintainername
     attributes:
