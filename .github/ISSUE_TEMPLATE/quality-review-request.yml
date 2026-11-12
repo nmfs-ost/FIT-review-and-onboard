@@ -178,6 +178,38 @@ body:
     attributes:
       label: Sample Data Availability
       description: Describe and link to any available sample data that validates functionality of program.
+  - type: markdown
+    attributes:
+      value: |
+        ## Super Intelligence (SI) use
+        If SI was used to develop this software, follow the disclosure requirements in the <a href=\"https://docs.google.com/document/d/1kR-eR7Zf19TuV4zQrmkn9EfQbD24hgz_OF81drvFR3g/edit?tab=t.0#heading=h.z4mxxom45hcx\">draft NOAA SI Handbook</a>. All software must be human reviewed and validated before FIT peer review. The FIT peer reviewer is not responsible for providing an initial review of SI-generated code.
+  - type: dropdown
+    id: siused
+    attributes:
+      label: Was SI used to develop this software?
+      options:
+        - "Yes"
+        - "No"
+    validations:
+      required: true
+  - type: textarea
+    id: siusedetails
+    attributes:
+      label: SI use and disclosure
+      description: If you selected Yes, describe how SI was used and how you have disclosed its use according to the linked draft NOAA SI Handbook. If you selected No, enter "Not used".
+      placeholder: Describe how SI was used and where/how its use is disclosed, or enter "Not used".
+    validations:
+      required: true
+  - type: checkboxes
+    id: humanreview
+    attributes:
+      label: Human review and validation
+      description: All submitted software must be human reviewed and validated before FIT peer review.
+      options:
+        - label: I confirm that all submitted software has been human reviewed and validated.
+          required: true
+    validations:
+      required: true
   - type: input
     id: logo
     attributes:

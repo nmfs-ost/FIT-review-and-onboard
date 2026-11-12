@@ -15,6 +15,10 @@ The FIT committee recognizes that some checklist items may not be widespread pra
 
 The form marks some fields as required to submit the issue and leaves others optional. An optional field can still provide evidence for a checklist item; blank fields are treated as information that was not provided, not as confirmation that the item is met. Follow the checklist requirements below as well as the field-specific instructions in the form.
 
+### Super Intelligence (SI) use
+
+If SI was used to develop the software, disclose how it was used in the submission form and follow the disclosure requirements in the relevant section of the [draft NOAA SI Handbook](https://docs.google.com/document/d/1kR-eR7Zf19TuV4zQrmkn9EfQbD24hgz_OF81drvFR3g/edit?tab=t.0#heading=h.z4mxxom45hcx). All SI-generated code must be human reviewed and validated before it enters FIT peer review, as the FIT peer reviewer is not responsible for providing its initial review.
+
 Below are descriptions and guidance on how to meet criteria on the reviewer checklist.
 
 ### Basics
