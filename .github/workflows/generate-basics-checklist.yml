@@ -40,6 +40,7 @@ jobs:
 
             - [ ] Confirm that tool is in scope per the [FIT scope statement](https://noaa-fisheries-integrated-toolbox.github.io/resources/about/)  
             - [ ] Metadata is complete, as determined by running against the [json schema](https://github.com/nmfs-ost/FIT_web_templating/blob/main/schema_model_list.json)
+            - [ ] SI use is confirmed in the submission: either SI was not used, or its use is disclosed according to the [software development section of the draft NOAA SI Handbook](https://docs.google.com/document/d/1kR-eR7Zf19TuV4zQrmkn9EfQbD24hgz_OF81drvFR3g/edit?tab=t.0#heading=h.z4mxxom45hcx), and all SI-generated code has been human reviewed and validated before FIT peer review.
             - [ ] Links in metadata work
             - [ ] A license is included (where appropriate, [an open source license](https://opensource.org/licenses/)).
             - [ ] Software version is included, or a GitHub releases link is provided (a static version is not required when using GitHub releases).

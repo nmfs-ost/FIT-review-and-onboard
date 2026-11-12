@@ -23,6 +23,10 @@ See the [command quick reference and example review](README.md#command-quick-ref
 
 For now, FIT requires author-provided language-specific results and human review.
 
+## Super Intelligence (SI) use
+
+Authors must disclose SI use according to the [software development section of the draft NOAA SI Handbook](https://docs.google.com/document/d/1kR-eR7Zf19TuV4zQrmkn9EfQbD24hgz_OF81drvFR3g/edit?tab=t.0#heading=h.z4mxxom45hcx). Before FIT peer review, all SI generated code must have been human reviewed and validated, as FIT peer review is not the initial review of SI-generated code; review the author's disclosure and completed human review as part of the submitted materials, then conduct the FIT checklist review.
+
 ## Checklist item extended descriptions.
 
 See the [Tool Author Submission Guide](https://github.com/nmfs-ost/FIT-test-quality-checks/blob/main/tool-author-submission-guide.md).
