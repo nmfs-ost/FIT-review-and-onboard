@@ -35,6 +35,10 @@ To meet this criteria, fill out all required fields of the onboarding form and f
 
 The FIT coordinator will run the metadata against a [JSON schema](https://github.com/nmfs-ost/FIT_web_templating/blob/main/schema_model_list.json) to identify any missing information.
 
+#### Software maintenance plan
+
+Use the Software Maintenance Plan field to describe how the software will be maintained, including who is responsible, how bug reports or user questions will be handled, and any plans for updates or releases. If plans are still developing, describe the current approach.
+
 #### Links in metadata are active
 
 The FIT coordinator will check that all links provided in the submitted onboarding form are functioning properly. We suggest developers double check that the links they provide are correct before submitting. Please note that all links listed in the onboarding form are NOT required, as long as there is at least one working metadata link.
