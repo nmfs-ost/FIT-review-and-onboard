@@ -9,17 +9,17 @@ The NOAA Fisheries Integrated Toolbox is seeking 5 [in-scope](https://nmfs-ost.g
 We are also recruiting peer reviewers. If you would like to review software for the Fisheries Integrated Toolbox now or in the future, please submit [this peer reviewer interest form](https://docs.google.com/forms/d/e/1FAIpQLScJNLk9HBPqxZDZd-7-22ZGjEfm7bb-4Ioo27Yro2vhe9LrPA/viewform?usp=dialog). Advanced software engineering expertise is not required - if you have experience writing scientific software for colleagues or future project use and enjoy offering constructive input, we welcome your participation!
 
 
-## Instructions for developer
+## Instructions for developers
 
-For NOAA developers, please fill out [this form](https://docs.google.com/forms/d/e/1FAIpQLSfRA-5dUT2f3i7CxLy7PcKBcShuBds-E3hQ6ugcYD5veOieSQ/viewform?usp=dialog) first to express interest in having your software reviewed.
+For NOAA developers, please fill out [this form](https://docs.google.com/forms/d/e/1FAIpQLSfRA-5dUT2f3i7CxLy7PcKBcShuBds-E3hQ6ugcYD5veOieSQ/viewform?usp=dialog) first to express interest in having your software peer reviewed. The FIT peer review process reviews software to ensure it meets metadata, documentation, and testing standards.
 
-Thank you for submitting your software to the Fisheries Integrated Toolbox! Read the [tool author submission guide](tool-author-submission-guide.md), confirm that your software is [in scope for FIT](https://nmfs-ost.github.io/noaa-fit-resources/about/#scope-statement), then [open an issue and fill out the Quality Review Request form](https://github.com/nmfs-ost/FIT-test-quality-checks/issues/new?template=quality-review-request.yml). Include a short testing narrative, language-specific check results, and a line-coverage report.
+Thank you for submitting your software to the Fisheries Integrated Toolbox! Read the [tool author submission guide](tool-author-submission-guide.md), confirm that your software is [in scope for FIT](https://nmfs-ost.github.io/noaa-fit-resources/about/#scope-statement), then [open an issue and fill out the FIT Peer Review Request form](https://github.com/nmfs-ost/FIT-test-quality-checks/issues/new?template=quality-review-request.yml).
 
 After submitting, some basic checks will occur before the software is assigned a peer reviewer who will review the materials you provide to begin checking off components of the checklist. This is a checklist-based review, where all mandatory items must be checked off before the software can be onboarded to the FIT.
 
 ## Process for review
 
-1. Author submits tool using the "quality review checklist" issue under https://github.com/nmfs-ost/FIT-test-quality-checks/issues
+1. Author submits tool using the "FIT Peer Review Request" issue under https://github.com/nmfs-ost/FIT-test-quality-checks/issues
 2. FIT coordinator generates the basics checklist using `/generate-basics-checklist` in an issue comment and completes it.
 3. Once basics is completed, FIT coordinator identifies a reviewer.
 4. Once a reviewer is identified, the FIT coordinators uses `/generate-reviewer-instructions @reviewer-github-name` to generate instructions for the reviewer.
@@ -27,18 +27,19 @@ After submitting, some basic checks will occur before the software is assigned a
 6. Once the tool is accepted, the FIT coordinator generates the post-acceptance checklist using `/generate-post-acceptance-checklist` and completes it.
 7. Once the post-acceptance checklist is complete and the author is satisfied with how the page looks on the FIT, the software is included on the FIT production website.
 8. The FIT coordinator comments `/generate-acceptance-message` on the submission issue to generate an acceptance message tagging the author and providing the FIT quality checks badge code.
+9. The issue is closed.
 
 > Note: Use `/list-commands` to see command options available for use.
 
 ### Timing and coordination
 
-The FIT coordinator aims to complete basic checks within **one week of submission**. Reviewers aim to complete peer review within **four weeks of assignment**. These are targets, not deadlines: record blockers and agree on extensions in the submission issue. Reviewer recruitment and author revisions depend on availability; the coordinator should post progress updates when delayed.
+The FIT coordinator aims to complete basic checks within **one week of submission**. Reviewers aim to complete peer review within **four weeks of assignment**. These are targets, not deadlines: reviewers should record blockers and can ask for extensions in the submission issue. Reviewer recruitment and author revisions depend on availability; the coordinator will post progress updates when delayed.
 
 Reviewers- See the [reviewer guide](reviewer-guide.md).
 
 The staged, issue-based approach draws on [rOpenSci](https://devguide.ropensci.org/softwarereviewintro.html), [JOSS](https://joss.readthedocs.io/en/latest/reviewer_guidelines.html), and [pyOpenSci](https://www.pyopensci.org/software-peer-review/).
 
-Keep the submission and review discussion in the issue. Link existing source code, documentation, test logs, and archives rather than copying them into another onboarding repository. The FIT coordinator handles the FIT website publication steps; authors should not open a second onboarding request. Link any detailed implementation issues back to the submission.
+Keep the submission and review discussion in the issue. Link existing source code, documentation, test logs, and archives rather than copying them into another onboarding repository. The FIT coordinator handles the FIT website publication steps.
 
 ### Command quick reference
 
@@ -84,7 +85,6 @@ These software already have metadata in the FIT. What needs to happen is:
 
 With Python, PyYAML (`python -m pip install PyYAML`), and Node.js installed, run `python -B -m unittest discover -s tests -v`. The tests parse the issue form and workflows and execute their JavaScript with mocked GitHub APIs; they do not modify GitHub issues. Live event delivery and repository permissions must still be verified after deployment.
 
-
 ## disclaimer
 
 The United States Department of Commerce (DOC) GitHub project code is provided on an "as is" basis and the user assumes responsibility for its use. DOC has relinquished control of the information and no longer has responsibility to protect the integrity, confidentiality, or availability of the information. Any claims against the Department of Commerce stemming from the use of its GitHub project will be governed by all applicable Federal law. Any reference to specific commercial products, processes, or services by service mark, trademark, manufacturer, or otherwise, does not constitute or imply their endorsement, recommendation or favoring by the Department of Commerce. The Department of Commerce seal and logo, or the seal and logo of a DOC bureau, shall not be used in any manner to imply endorsement of any commercial product or activity by DOC or the United States Government.
@@ -92,3 +92,5 @@ The United States Department of Commerce (DOC) GitHub project code is provided o
 ## SI use
 
 The code and writing in this repository was augmented using GitHub Copilot. Qualified NOAA staff verified it for accuracy.
+
+In additon, SI may be used in the peer review process to generate an initial website page for the software. We are investigating other ways to use SI to improve efficiency but still provide a human review of the software. We will disclose other uses of SI as they develop.
