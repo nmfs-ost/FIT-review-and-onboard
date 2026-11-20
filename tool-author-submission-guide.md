@@ -45,11 +45,9 @@ The FIT coordinator will check that all links provided in the submitted onboardi
 
 #### A License is included
 
-FIT licensing guidance provided here is not legal advice.
+FIT licensing guidance is not legal advice. Follow the [NWFSC-Template licensing guidance](https://github.com/noaa-nwfsc/NWFSC-Template), which describes the scenarios and files to use. In general, a repository should include Apache-2.0 for source code in `LICENSE.md` and CC0 1.0 for documentation and data in `LICENSE-DOCS.md`; `NOTICE` defines the scope and attribution, and `INTENT.md` describes how U.S. copyright law applies to federal employee contributions. Keep third-party licenses and notices, and list third-party material in `NOTICE`.
 
-For comprehensive licensing guidance, refer to the [complete documentation](https://nmfs-opensci.github.io/GitHub-Guide/#sec-license). Generally, if only NOAA federal employees have contributed to a tool, a permissive open license, such as Apache 2.0, is required. The licensing process can be more complex when other contributors are involved. For assistance with software licensing decisions, contact the FIT service account at fisheries.toolbox@noaa.gov.
-
-While software licenses can be changed, this typically requires agreement from all contributors. It is therefore recommended to establish a license before development begins to simplify the process.
+If the scenario or agreement is unclear, contact the FIT service account at fisheries.toolbox@noaa.gov before choosing a license. Changing a license later typically requires agreement from all contributors, so establish the licensing approach early.
 
 #### Software version is included
 
