@@ -238,7 +238,7 @@ body:
     id: license
     attributes:
       label: License
-      description: Please link to the license file for this project. This should be an [open source license](https://opensource.org/licenses/).  Commonly used open source licenses include MIT, GPL 3.0, and Apache 2.0. The unlicense is also an option.
+      description: Please link to the project's licensing files (including LICENSE.md and, where applicable, LICENSE-DOCS.md, NOTICE, and INTENT.md). Select licenses based on the contributors and any applicable contracts or agreements; see the [NWFSC licensing guidance](https://github.com/noaa-nwfsc/NWFSC-Template) for all scenarios.
       placeholder: https://github.com/nmfs-fish-tools/SSMSE/blob/main/LICENSE.MD
     validations:
       required: true

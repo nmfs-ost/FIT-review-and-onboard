@@ -81,10 +81,6 @@ These software already have metadata in the FIT. What needs to happen is:
 2. Author adds additional info needed for the peer review process, should not need to re-enter existing metadata.
 3. Complete 2-8 for the software tool.
 
-## Workflow development checks
-
-With Python, PyYAML (`python -m pip install PyYAML`), and Node.js installed, run `python -B -m unittest discover -s tests -v`. The tests parse the issue form and workflows and execute their JavaScript with mocked GitHub APIs; they do not modify GitHub issues. Live event delivery and repository permissions must still be verified after deployment.
-
 ## disclaimer
 
 The United States Department of Commerce (DOC) GitHub project code is provided on an "as is" basis and the user assumes responsibility for its use. DOC has relinquished control of the information and no longer has responsibility to protect the integrity, confidentiality, or availability of the information. Any claims against the Department of Commerce stemming from the use of its GitHub project will be governed by all applicable Federal law. Any reference to specific commercial products, processes, or services by service mark, trademark, manufacturer, or otherwise, does not constitute or imply their endorsement, recommendation or favoring by the Department of Commerce. The Department of Commerce seal and logo, or the seal and logo of a DOC bureau, shall not be used in any manner to imply endorsement of any commercial product or activity by DOC or the United States Government.
