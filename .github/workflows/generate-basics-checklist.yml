@@ -43,7 +43,7 @@ jobs:
             - [ ] A software maintenance plan is included in the submission.
             - [ ] SI use is confirmed in the submission: either SI was not used, or its use is disclosed according to the [software development section of the draft NOAA SI Handbook](https://docs.google.com/document/d/1kR-eR7Zf19TuV4zQrmkn9EfQbD24hgz_OF81drvFR3g/edit?tab=t.0#heading=h.z4mxxom45hcx), and all SI-generated code has been human reviewed and validated before FIT peer review.
             - [ ] Links in metadata work
-            - [ ] A license is included (where appropriate, [an open source license](https://opensource.org/licenses/)).
+            - [ ] Licensing matches the contributor scenario and any applicable agreement: source code uses Apache-2.0 unless the [NWFSC licensing guidance](https://github.com/noaa-nwfsc/NWFSC-Template) specifies an exception; documentation and data use CC0 1.0. Check for LICENSE.md, LICENSE-DOCS.md, NOTICE, and INTENT.md, and confirm third-party notices and licenses are retained where applicable.
             - [ ] Software version is included, or a GitHub releases link is provided (a static version is not required when using GitHub releases).
             - [ ] Source code is linked (note: check this off if source code is not provided and there is a valid reason for source code to be kept private)  
             - [ ] For NOAA-developed products where the source code is linked, there is a [NOAA disclaimer](https://github.com/nmfs-ost/FIT-resource-files?tab=readme-ov-file#noaa-license) on the readme of the source code.  
